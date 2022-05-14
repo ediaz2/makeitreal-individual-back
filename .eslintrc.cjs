@@ -30,7 +30,7 @@ module.exports = {
     'import/no-unresolved': [
       'error',
       {
-        ignore: Object.keys(dependencies || {}),
+        ignore: [...Object.keys(dependencies || {}), 'vitest/config'],
       },
     ],
     'import/prefer-default-export': 'off',
