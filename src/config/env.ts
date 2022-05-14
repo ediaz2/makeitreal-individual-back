@@ -16,6 +16,7 @@ const envSchema = z.object({
   NODE_ENV: z
     .enum(['development', 'production', 'test'])
     .default('development'),
+  DOMAIN: z.string().default('localhost'),
   MONGO_URI: z.string(),
   JWT_SECRET: z.string(),
   JWT_EXPIRES_IN: z.string(),
@@ -36,6 +37,7 @@ const { data } = result;
 export const env = {
   port: data.PORT,
   env: data.NODE_ENV,
+  domain: data.DOMAIN,
   mongoose: {
     uri: data.MONGO_URI,
     options: {
