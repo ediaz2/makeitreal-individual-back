@@ -3,12 +3,14 @@ import { cors } from '@tinyhttp/cors';
 import { logger } from '@tinyhttp/logger';
 import { urlencoded } from 'milliparsec';
 
+import { routes } from '~/routes';
+
 const app = new App();
 
 // Middelwares
 app.use(cors());
 app.use(logger());
 app.use(urlencoded());
-app.get('/', (req, res) => res.send('Hello World!'));
+app.use(routes);
 
 export { app };
