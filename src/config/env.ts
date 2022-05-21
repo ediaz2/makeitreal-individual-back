@@ -18,6 +18,9 @@ const envSchema = z.object({
     .default('development'),
   DOMAIN: z.string().default('localhost'),
   MONGO_URI: z.string(),
+  CLOUDINARY_CLOUD_NAME: z.string(),
+  CLOUDINARY_API_KEY: z.string(),
+  CLOUDINARY_API_SECRET: z.string(),
   JWT_SECRET: z.string(),
   JWT_EXPIRES_IN: z.string(),
 });
@@ -44,6 +47,12 @@ export const env = {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     } as ConnectOptions,
+  },
+  cloudinary: {
+    cloud_name: data.CLOUDINARY_CLOUD_NAME,
+    api_key: data.CLOUDINARY_API_KEY,
+    api_secret: data.CLOUDINARY_API_SECRET,
+    secure: true,
   },
   jwt: {
     secret: data.JWT_SECRET,
