@@ -17,11 +17,14 @@ export const findOne: SyncHandlerTenant = async (req, res, next) => {
 export const findByTenant: SyncHandlerTenant = async (req, res, next) => {
   const { tenant } = req.params;
 
-  const [users, error] = await userService.findOne({ tenant });
-  if (error) {
-    errorHandler(error, req, res);
-    return;
+  const [users] = await userService.findOne({ tenant });
+  if (users) {
+    res.json({
+      exists: true,
+    })
+  } else {
+    res.json({
+      exists: false,
+    })
   }
-
-  res.json(users);
-}
+};
