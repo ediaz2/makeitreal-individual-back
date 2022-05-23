@@ -1,0 +1,37 @@
+logs
+*.log
+
+# Dependency directories
+node_modules/
+
+# Linters
+.eslintcache
+.eslinignore
+.eslintrc.cjs
+.prettierrc
+.editorconfig
+
+# Git
+.github
+.git
+.gitignore
+
+# dotenv environment variables file
+.env
+.env.example
+.env.test
+.env.development
+.env.production
+
+# Generate output
+dist/
+
+# Docker
+.dockerignore
+Dockerfile
+
+# Files Optional
+.vscode/
+.husky/
+README.md
+Taskfile.yml

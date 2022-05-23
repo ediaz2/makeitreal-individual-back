@@ -19,6 +19,8 @@ routes.post('/api/auth/login', validateRequest(login), controllerAuth.login);
 
 // USERS
 routes.get('/api/users/:id', authorization, controllerUsers.findOne);
+// free tenant
+routes.get('/api/users/tenant/:tenant', checkTenant, controllerUsers.findByTenant);
 
 // PRODUCTS
 routes.get('/api/products', checkTenant, controllerProducts.findByTenant);
